@@ -1,0 +1,124 @@
+@charset "UTF-8";
+div.container {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.container div {
+  width: 50%;
+}
+
+div.container div.formSection main {
+  width: 80%;
+}
+
+div.container div.v-separator {
+  height: auto;
+  margin: 7em 2em;
+  width: 2px;
+  background-color: var(--foreground-Color);
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+div.container div.FAQ {
+  margin-top: 7em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div.container div.FAQ div.faq-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+div.container div.FAQ div.faq-title svg {
+  width: 2em;
+  fill: var(--foreground-Color);
+  -webkit-transition: fill 0.3s ease;
+  transition: fill 0.3s ease;
+}
+
+div.container div.FAQ div.questions {
+  width: 100%;
+  margin-top: 2em;
+  height: auto;
+}
+
+div.container div.FAQ div.questions hr {
+  margin: 0 1em;
+}
+
+div.container div.FAQ div.questions details.question {
+  width: 100%;
+  margin: 1em 0;
+}
+
+div.container div.FAQ div.questions details.question > summary {
+  list-style-type: none;
+}
+
+div.container div.FAQ div.questions details.question > summary::-webkit-details-marker {
+  display: none;
+}
+
+div.container div.FAQ div.questions details.question > summary::before {
+  content: '⊞';
+  padding-left: 0.5em;
+}
+
+div.container div.FAQ div.questions details.question[open] > summary::before {
+  content: '⊟';
+}
+
+div.container div.FAQ div.questions details.question details[open] > summary {
+  margin-bottom: 0.5rem;
+}
+
+div.container div.FAQ div.questions details.question p {
+  margin: 1em 0;
+  margin-right: 2em;
+}
+
+div.container div.FAQ div.questions details.question ol {
+  margin-right: 4em;
+}
+
+@media screen and (max-width: 750px) {
+  div.container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  div.container div {
+    width: 90%;
+  }
+  div.container div.v-separator {
+    height: 2px;
+    margin: 0;
+    width: 100%;
+  }
+  div.container div.FAQ {
+    margin-top: 1em;
+  }
+}
+/*# sourceMappingURL=support.css.map */

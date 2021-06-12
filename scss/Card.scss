@@ -1,0 +1,390 @@
+@import 'root';
+
+section.container{
+    width: 90%;
+    margin: 1em auto;
+    border: 3px solid var(--primary-Color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 1em;
+
+    div.showStyle{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: 0 0 auto 0;
+        
+        span{
+            font-family: "A Iranian Sans";
+        }
+
+        button{
+            background-color: transparent;
+            border: none;
+            outline: none;
+            appearance: none;
+            width: 40px;
+            border-radius: 10px;
+            margin: 0.2em 0.5em;
+            display: flex;
+            padding: 0.7em;
+            cursor: pointer;
+            transition: background-color 0.5s ease,fill 0.3s ease;
+            &.active{
+                background-color: var(--header-Color);
+                border: none;
+            }
+            svg{
+                fill: var(--foreground-Color);
+                background-color: none;
+                transition: fill 0.3s ease;
+            }
+        }
+    }
+
+    .cards{
+        margin-top: 1em;
+        width: 100%;
+        &.list{
+            display: flex;
+            flex-direction: column;
+            .card{
+                width: 100%;
+                height: auto;
+                background-color: var(--header-Color);
+                border-radius: 15px;
+                display: grid;
+                grid-template-columns: 15% 55% 30%;
+                grid-template-rows: auto auto auto;
+                grid-template-areas: 
+                "image topic buttons"
+                "image information details"
+                "image information price";
+                margin: 0.5em 0;
+                padding: 0.5em 0;
+                transition: background-color 0.5s ease,color 0.1s ease;
+
+                a.thumbnail{
+                    display: flex;
+                    margin: auto 1em;
+                    grid-area: image;
+                    transition: transform 0.3s ease;
+                    &:hover{
+                        transform: scale(1.2);
+                    }
+                    img{
+                        max-width: 110px;
+                        border-radius: 10px;
+                        margin:0 auto;
+                    }
+                }
+
+                a.topic{
+                    color: var(--foreground-Color);
+                    text-decoration: none;
+                    grid-area: topic;
+                    margin: 0.5em 1em;
+                    font-weight: bold;
+                    font-size: 1.3em;
+                    width: fit-content;
+                    transition:color 0.1s ease;
+                }
+
+                div.information{
+                    display: flex;
+                    flex-direction: row;
+                    grid-area: information;
+                    margin: 0 1em;
+                    align-items: center;
+                    div{
+                        background-color: var(--background-Color);
+                        border-radius: 10px 0 10px 10px;
+                        display: flex;
+                        flex-direction: column;
+                        margin-left: 0.5em;
+                        padding: 0.5em 1em;
+                        font-size: 0.8em;
+                        transition: background-color 0.5s ease,color 0.1s ease;
+                        justify-content: center;
+                        height: fit-content;
+                        
+                        span{
+                            margin-left: auto;
+                            font-size: 1em;
+                        }
+                        strong{
+                            margin: 0.2em auto;
+                            font-size: 1em;
+                        }
+                    }
+                }
+
+                .buttons{
+                    display: flex;
+                    grid-area: buttons;
+                    margin-right: auto;
+                    margin-left: 1em;
+                    button{
+                        appearance: none;
+                        outline: none;
+                        border: none;
+                        background-color: transparent;
+                        margin: 0.5em;
+                        cursor: pointer;
+
+                        &#point{
+                            svg{
+                                fill: transparent;
+                                stroke:  var(--foreground-Color);
+                                stroke-width: 2px;
+                            }
+                        }
+                        svg{
+                            fill: var(--foreground-Color);
+                            width: 20px;
+                            transition: transform 0.5s ease, fill 0.3s ease,stroke 0.3s ease;
+                            &:hover{
+                                transform: scale(1.4);
+                            }
+                        }
+                    }
+                }
+
+                a.seeDetails{
+                    position: relative;
+                    height: 40px;
+                    grid-area: details;
+                    background-color: var(--success-Color);
+                    border-radius: 10px;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 1em;
+                    overflow: hidden;
+                    
+                    span{
+                        font-size: 1.2em;
+                        color: white;
+                        text-decoration: none;
+                        margin: 0 0.5em;
+                    }
+                    svg{
+                        fill: white;
+                        width: 20px;
+                    }
+
+                    &::after{
+                        content: '';
+                        position: absolute ;
+                        border-color: transparent;
+                        border-width: 0.7em 1em;
+                        border-style: solid;
+                        border-right-color: white;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        z-index: 5;
+                        margin-left: -50px;
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover::after{
+                        transform: translate(70px,-50%);
+                    }
+                }
+
+                div.price{
+                    grid-area: price;
+                    height: 30px;
+                    background-color: var(--background-Color);
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0.2em 1em;
+                    font-size: 0.8em;
+                    transition: background-color 0.5s ease,color 0.1s ease;
+                }
+            }
+        }
+
+        &.grid{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            .card{
+
+                width: clamp(30% , auto , 100%);
+                height: auto;
+                background-color: var(--header-Color);
+                border-radius: 15px;
+                display: grid;
+                grid-template-columns: 25% 50% 25%;
+                grid-template-rows: auto auto auto auto;
+                grid-template-areas: 
+                "image image image"
+                "topic topic topic"
+                "information information information"
+                "point details share";
+                margin: 1em;
+                padding: 0.5em;
+                transition: background-color 0.5s ease,color 0.1s ease;
+                padding-bottom: 0;
+
+                a.thumbnail{
+                    width: 100%;
+                    display: flex;
+                    grid-area: image;
+                    margin: auto;
+
+                    img{
+                        width: 95%;
+                        margin: 0.5em auto;
+                        border-radius: 10px;
+                    }
+                }
+
+                a.topic{
+                    color: var(--foreground-Color);
+                    text-decoration: none;
+                    grid-area: topic;
+                    margin: 0.5em;
+                    font-weight: bold;
+                    font-size: clamp(0.8em,2.5vw,1.2em);
+                    width: fit-content;
+                    transition:color 0.1s ease;
+                }
+
+                div.information{
+                    grid-area: information;
+                    width: 100%;
+                    height: auto;
+                    display: grid;
+                    grid-gap: 0.5em 0;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: 30px 30px 30px;
+                    grid-template-areas: 
+                    "category date"
+                    "location location"
+                    "price price";
+                    padding: 0 1em;
+
+                    div{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        text-align: center;
+
+                        &:nth-child(2),&:nth-child(3){
+                            svg{
+                                width: 30px;
+                            }
+                        }
+
+                        svg{
+                            width: 30px;
+                            margin: 0 0.2em;
+                            fill:var(--foreground-Color);
+                            transition: fill 0.5s ease;
+                        }
+                        span{
+                            background-color: var(--background-Color);
+                            border-radius: 5px;
+                            width: 100%;
+                            padding: 0.2em 0.5em;
+                            font-size: clamp(0.7em,3vw,.8em);
+                            transition: background-color 0.5s ease;
+                        }
+                    }
+                    .category{grid-area: category;}
+                    .date{grid-area: date;}
+                    .location{grid-area: location;}
+                    .price{grid-area: price;}
+                }
+
+                button#share{
+                    grid-area: share;
+                }
+
+                button#point, button#share{
+                    background-color: transparent;
+                    border:none;
+                    outline: none;
+                    appearance: none;
+                    margin-top: 2em;
+
+                    svg{
+                        width: clamp(20px,3vw,30px);
+                        fill: var(--foreground-Color);
+                        cursor: pointer;
+                        transition: transform 0.3s ease , fill 0.3s ease,stroke 0.3s ease;
+
+                        &:hover{
+                            transform: scale(1.4);
+                        }
+                    }
+                }
+
+                button#point{
+                    grid-area: point;
+                    svg{
+                        fill: transparent;
+                        stroke: var(--foreground-Color);
+                        stroke-width: 2px;
+                    }
+                }   
+
+                a.seeDetails{
+                    display: flex;
+                    grid-area: details;
+                    display: flex;
+                    text-decoration: none;
+                    color: white;
+                    background-color: var(--success-Color);
+                    border-radius: 10px 10px 0 0;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 1em;
+                    margin-bottom: 0;
+                    position: relative;
+                    overflow: hidden;
+
+                    &::after{
+                        content: '';
+                        position: absolute ;
+                        border-color: transparent;
+                        border-width: 0.7em 1em;
+                        border-style: solid;
+                        border-right-color: white;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        margin-left: -50%;
+                        z-index: 5;
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover::after{
+                        transform: translate(70px,-50%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    section.container{
+        div.showStyle{
+            display: none;
+        }
+        div.cards.list{
+            display: none;
+        }
+        div.card.grid{
+            display: flex;
+        }
+    }
+}

@@ -1,0 +1,370 @@
+:root {
+  --primary-Color:#3E74FF;
+  --warning-Color:#FFEB3A;
+  --danger-Color:#FE5555;
+}
+
+.light {
+  --background-Color: #E5E5E5;
+  --foreground-Color: black;
+  --header-Color:#ebf5fc;
+  --success-Color:#32C35B;
+  --secondary-Color:#68B7FF;
+}
+
+.dark {
+  --background-Color: #0C0C0E;
+  --foreground-Color: #fcfcff;
+  --header-Color:#151618;
+  --success-Color:#FD6721;
+  --secondary-Color:#2E999F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Vazir FD";
+}
+
+.btn {
+  text-decoration: none;
+  color: var(--foreground-Color);
+  padding: 0.4rem 1.5rem;
+  border: 2px solid transparent;
+}
+
+body {
+  background-color: var(--background-Color);
+  color: var(--foreground-Color);
+  direction: rtl;
+  -webkit-transition: 0.5s color ease, 0.3s background-color ease;
+  transition: 0.5s color ease, 0.3s background-color ease;
+}
+
+body nav, body footer {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 4rem;
+  background-color: var(--header-Color);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-transition: 0.5s color ease, 0.3s background-color ease;
+  transition: 0.5s color ease, 0.3s background-color ease;
+  z-index: 9999;
+}
+
+body nav div.navigation, body footer div.navigation {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.9em;
+}
+
+body nav div.navigation button#menuExpander, body footer div.navigation button#menuExpander {
+  padding: 0 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: none;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+body nav div.navigation button#menuExpander svg, body footer div.navigation button#menuExpander svg {
+  fill: var(--foreground-Color);
+}
+
+body nav div.navigation #menuContainer, body footer div.navigation #menuContainer {
+  display: none;
+  position: absolute;
+  top: 4rem;
+  background-color: var(--header-Color);
+  border-radius: 0 0 15px 15px;
+  width: 100%;
+  height: auto;
+  z-index: 99;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
+          box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+body nav div.navigation #menuContainer div.main, body footer div.navigation #menuContainer div.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+body nav div.navigation #menuContainer div.main ul, body footer div.navigation #menuContainer div.main ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body nav div.navigation #menuContainer div.main ul li, body footer div.navigation #menuContainer div.main ul li {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 2em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+body nav div.navigation #menuContainer div.main ul li #switchThemeMenu, body footer div.navigation #menuContainer div.main ul li #switchThemeMenu {
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+}
+
+body nav div.navigation #menuContainer div.main ul li #switchThemeMenu svg, body footer div.navigation #menuContainer div.main ul li #switchThemeMenu svg {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  fill: var(--foreground-Color);
+}
+
+body nav div.navigation #menuContainer div.main ul li #switchThemeMenu span, body footer div.navigation #menuContainer div.main ul li #switchThemeMenu span {
+  color: var(--foreground-Color);
+  margin: 1rem;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+body nav div.navigation #menuContainer div.main ul hr, body footer div.navigation #menuContainer div.main ul hr {
+  width: 100%;
+}
+
+body nav div.navigation ul, body footer div.navigation ul {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+body nav div.navigation ul li, body footer div.navigation ul li {
+  list-style: none;
+  display: inline;
+}
+
+body nav div.navigation ul li a, body footer div.navigation ul li a {
+  border-radius: 7px;
+  -webkit-transition: 0.3s border ease,color 0.3s ease;
+  transition: 0.3s border ease,color 0.3s ease;
+}
+
+body nav div.navigation ul li a:hover:not(.active), body footer div.navigation ul li a:hover:not(.active) {
+  border: 2px solid var(--primary-Color);
+}
+
+body nav div.navigation ul li .active, body footer div.navigation ul li .active {
+  background-color: var(--primary-Color);
+  color: white;
+  border-radius: 7;
+}
+
+body nav div.navigation ul #switchTheme, body footer div.navigation ul #switchTheme {
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+}
+
+body nav div.navigation ul #switchTheme svg, body footer div.navigation ul #switchTheme svg {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  fill: var(--foreground-Color);
+}
+
+body nav div.navigation .sendAdv, body footer div.navigation .sendAdv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 2px solid var(--success-Color);
+  border-radius: 7px;
+  padding: 0.4rem 4rem;
+  -webkit-transition: 0.5s color ease , 0.5s background-color ease;
+  transition: 0.5s color ease , 0.5s background-color ease;
+  position: relative;
+  overflow: hidden;
+}
+
+body nav div.navigation .sendAdv span, body nav div.navigation .sendAdv svg, body footer div.navigation .sendAdv span, body footer div.navigation .sendAdv svg {
+  z-index: 20;
+}
+
+body nav div.navigation .sendAdv svg, body footer div.navigation .sendAdv svg {
+  -webkit-transition: 0.5s fill ease-in;
+  transition: 0.5s fill ease-in;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  fill: var(--foreground-Color);
+  margin-right: 10px;
+}
+
+body nav div.navigation .sendAdv:hover > svg, body nav div.navigation .sendAdv.active > svg, body footer div.navigation .sendAdv:hover > svg, body footer div.navigation .sendAdv.active > svg {
+  fill: white;
+}
+
+body nav div.navigation .sendAdv:hover, body nav div.navigation .sendAdv.active, body footer div.navigation .sendAdv:hover, body footer div.navigation .sendAdv.active {
+  color: white;
+}
+
+body nav div.navigation .sendAdv:hover::after, body nav div.navigation .sendAdv.active::after, body footer div.navigation .sendAdv:hover::after, body footer div.navigation .sendAdv.active::after {
+  -webkit-transform: translate(4.5em, -4em) scale(2);
+          transform: translate(4.5em, -4em) scale(2);
+}
+
+body nav div.navigation .sendAdv::after, body footer div.navigation .sendAdv::after {
+  position: absolute;
+  content: '';
+  pointer-events: none;
+  width: 100%;
+  height: 20em;
+  border-radius: 50%;
+  background-color: var(--success-Color);
+  z-index: 5;
+  -webkit-transition: -webkit-transform 1s ease;
+  transition: -webkit-transform 1s ease;
+  transition: transform 1s ease;
+  transition: transform 1s ease, -webkit-transform 1s ease;
+  -webkit-transform-origin: 0.5, 0.5;
+          transform-origin: 0.5, 0.5;
+  -webkit-transform: translate(4.5em, -4em) scale(0);
+          transform: translate(4.5em, -4em) scale(0);
+}
+
+body nav div.navigation .account a, body footer div.navigation .account a {
+  border: 2px solid var(--secondary-Color);
+  border-radius: 7px;
+  -webkit-transition: 0.5s color ease , 0.5s background-color ease;
+  transition: 0.5s color ease , 0.5s background-color ease;
+}
+
+body nav div.navigation .account a:hover, body nav div.navigation .account a.active, body footer div.navigation .account a:hover, body footer div.navigation .account a.active {
+  background-color: var(--secondary-Color);
+  color: white;
+}
+
+@media only screen and (max-width: 900px) {
+  body nav div.navigation button#menuExpander, body footer div.navigation button#menuExpander {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  body nav div.navigation ul, body footer div.navigation ul {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  body nav div.navigation button#menuExpander, body footer div.navigation button#menuExpander {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  body nav div.navigation ul, body footer div.navigation ul {
+    display: none;
+    width: 70%;
+  }
+  body nav div.navigation .sendAdv, body footer div.navigation .sendAdv {
+    display: none;
+  }
+}
+
+body footer {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body footer div:nth-child(1) {
+  padding: 1em 0;
+}
+
+body footer div:nth-child(2) {
+  background-color: var(--success-Color);
+}
+
+body footer div:nth-child(2) div.copyright {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body footer div:nth-child(2) div.copyright div.cybery {
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body footer div:nth-child(2) div.copyright div.cybery a {
+  text-decoration: none;
+  margin: 0 .5em;
+}
+
+body footer div:nth-child(2) div.copyright div.cybery a svg {
+  width: 2em;
+  fill: white;
+}
+/*# sourceMappingURL=main.css.map */

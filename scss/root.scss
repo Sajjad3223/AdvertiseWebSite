@@ -1,0 +1,28 @@
+$light-header-color:#ebf5fc;
+$dark-header-color:#151618;
+$light-background-color:#E5E5E5;
+$dark-background-color:#0C0C0E;
+$light-forecolor:black;
+$dark-forecolor:#fcfcff;
+$primary-color:#3E74FF;
+$light-success-color:#32C35B;
+$dark-success-color:#FD6721;
+$warning-color:#FFEB3A;
+$danger-color:#FE5555;
+$light-secondary-color:#68B7FF;
+$dark-secondary-color:#2E999F;
+
+@mixin rounded($radius: 7) {
+    border-radius: $radius;
+}
+
+@mixin colorTransition {
+    transition: 0.5s color ease, 0.3s background-color ease;
+}
+
+@mixin btn{
+    text-decoration: none;
+    color: var(--foreground-Color);
+    padding: 0.4rem 1.5rem;
+    border: 2px solid transparent;
+}

@@ -1,0 +1,291 @@
+@import 'root';
+
+:root{
+    --primary-Color:#{$primary-color};
+    --warning-Color:#{$warning-color};
+    --danger-Color:#{$danger-color};
+}
+
+.light{
+    --background-Color: #{$light-background-color};
+    --foreground-Color: #{$light-forecolor};
+    --header-Color:#{$light-header-color};
+    --success-Color:#{$light-success-color};
+    --secondary-Color:#{$light-secondary-color};
+}
+
+.dark {
+    --background-Color: #{$dark-background-color};
+    --foreground-Color: #{$dark-forecolor};
+    --header-Color:#{$dark-header-color};
+    --success-Color:#{$dark-success-color};
+    --secondary-Color:#{$dark-secondary-color};
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Vazir FD"; //TODO Remove and import font
+}
+
+.btn{
+    @include btn;
+}
+
+@mixin switchTheme{
+    padding:0 10px ;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    
+    svg{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        fill: var(--foreground-Color);
+    }
+}
+
+    
+body{
+    background-color: var(--background-Color);
+    color: var(--foreground-Color);
+    direction: rtl;
+    @include colorTransition;
+    
+    nav,footer{
+        position:sticky;
+        top: 0;
+        height: 4rem;
+        background-color: var(--header-Color);
+        display: flex;
+        width: 100%;
+        @include colorTransition;
+        z-index: 9999;
+        
+        div.navigation{
+            position: relative;
+            width: 90%;
+            margin:0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+
+            button#menuExpander{
+                padding:0 10px ;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                display: none;
+                align-self: center;
+                
+                svg{
+                    fill: var(--foreground-Color);
+                }
+            }
+
+            #menuContainer{
+                display: none;
+                position: absolute;
+                top: 4rem;
+                background-color: var(--header-Color);
+                border-radius: 0 0 15px 15px;
+                width: 100%;
+                height: auto;
+                z-index: 99;
+                transition: background-color 0.3s ease;
+                box-shadow: 0 5px 5px 0 rgba(0,0,0,0.4);
+
+                div.main{
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                    ul{
+                        display: flex;
+                        flex-wrap: wrap;
+                        li{
+                            width: 100%;
+                            display: flex;
+                            margin: 2em;
+                            justify-content: center;
+                            align-items: center;
+                            flex-wrap: wrap;
+                            align-self: center;
+
+                            #switchThemeMenu{   
+                                @include switchTheme;
+                                span{
+                                    color: var(--foreground-Color);
+                                    margin: 1rem;
+                                    transition: color 0.3s ease;
+                                    
+                                }
+                            }
+                        }
+
+
+                        hr{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+    
+            ul{
+                width: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+    
+                li{
+                    list-style: none;
+                    display: inline;
+    
+                    a{
+                        @include rounded(7px);
+                        transition: 0.3s border ease,color 0.3s ease;
+    
+                        &:hover:not(.active){
+                            border: 2px solid var(--primary-Color);
+                        }
+                    }
+    
+                    .active{
+                        background-color: var(--primary-Color);
+                        color: white;
+                        @include rounded();
+                    }
+                }
+    
+                #switchTheme{
+                    @include switchTheme;
+                }
+            }
+    
+            .sendAdv{
+                display: flex;
+                border: 2px solid var(--success-Color);
+                @include rounded(7px);
+                padding: 0.4rem 4rem;
+                transition: 0.5s color ease , 0.5s background-color ease;
+                position: relative;
+                overflow: hidden;
+
+                span,svg{
+                    z-index: 20;
+                }
+    
+                svg{
+                    transition: 0.5s fill ease-in;
+                    align-self: center;
+                    fill: var(--foreground-Color);
+                    margin-right:10px;
+                }
+    
+                &:hover > svg , &.active > svg{
+                    fill: white;
+                }
+    
+                &:hover , &.active{
+                    color: white;
+                    &::after{
+                        transform: translate(4.5em,-4em) scale(2);
+                    }
+                }
+                
+
+                &::after{
+                    position: absolute;
+                    content: '';
+                    pointer-events: none;
+                    width: 100%;
+                    height: 20em;
+                    border-radius: 50%;
+                    background-color: var(--success-Color);
+                    z-index: 5;
+                    transition: transform 1s ease;
+                    transform-origin: 0.5, 0.5;
+                    transform: translate(4.5em,-4em) scale(0);
+                }
+                
+            }
+
+            .account{
+    
+                a{
+                    border: 2px solid var(--secondary-Color);
+                    @include rounded(7px);
+                    transition: 0.5s color ease , 0.5s background-color ease;
+                    &:hover , &.active{
+                        background-color: var(--secondary-Color);
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        @media only screen and (max-width: 900px) {
+            div.navigation{
+                button#menuExpander{
+                    display: flex;
+                }
+                ul{
+                    display: none;
+                }
+            }
+        }
+        @media only screen and (max-width: 560px) {
+            div.navigation{
+                button#menuExpander{
+                    display: flex;
+                }
+                ul{
+                    display: none;
+                    width: 70%;
+                }
+
+                .sendAdv{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    footer{
+        flex-direction: column;
+
+        div:nth-child(1){
+            padding:1em 0;
+        }
+        div:nth-child(2){
+            background-color: var(--success-Color);
+            div.copyright{
+                color: white;
+                display: flex;
+                width: 90%;
+                margin: 0 auto;
+                align-items: center;
+                div.cybery{
+                    margin-right: auto;
+                    display: flex;
+                    width: auto;
+                    align-items: center;
+                    a{
+                        text-decoration: none;
+                        margin: 0 .5em;
+                        svg{
+                            width: 2em;
+                            fill: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

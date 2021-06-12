@@ -1,0 +1,543 @@
+@charset "UTF-8";
+div.form-container {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.form-container aside {
+  width: 40%;
+  height: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  margin-top: 2em;
+  top: 5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div.form-container aside svg {
+  max-width: 5em;
+}
+
+div.form-container aside main {
+  background-color: var(--header-Color);
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+  padding: 2em;
+  border-radius: 1em;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+div.form-container aside main section.image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div.form-container aside main section.image h2 {
+  margin-bottom: 0.5em;
+}
+
+div.form-container aside main section.image ul.images {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  grid-gap: 0.5em;
+  list-style: none;
+}
+
+div.form-container aside main section.image ul.images div.uploadButton {
+  position: relative;
+  border: 2px solid var(--secondary-Color);
+  border-radius: 1em;
+}
+
+div.form-container aside main section.image ul.images div.uploadButton input {
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+
+div.form-container aside main section.image ul.images div.uploadButton label, div.form-container aside main section.image ul.images div.uploadButton svg {
+  position: absolute;
+  width: 80%;
+  top: 10%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+div.form-container aside main section.image ul.images div.uploadButton svg {
+  fill: var(--secondary-Color);
+  width: 3em;
+  pointer-events: none;
+}
+
+div.form-container aside main section.image ul.images div.uploadButton label {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: clamp(0.7em, 1vw, 1em);
+  top: 60%;
+  text-align: center;
+  background-color: var(--primary-Color);
+  color: white;
+  border-radius: 5px;
+  padding: 0.3em 0;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+div.form-container aside main section.image ul.images li {
+  width: 100%;
+  position: relative;
+  min-height: 7em;
+  border-radius: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: var(--background-Color);
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+  -webkit-box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+  padding: 0.5em;
+}
+
+div.form-container aside main section.image ul.images li img {
+  width: 90%;
+  max-height: 6em;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+div.form-container aside main section.image ul.images li img[src=""], div.form-container aside main section.image ul.images li img[src=""] ~ svg.remove {
+  display: none;
+}
+
+div.form-container aside main section.image ul.images li img:not([src=""]) ~ svg.template {
+  display: none;
+}
+
+div.form-container aside main section.image ul.images li svg.template {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  fill: var(--secondary-Color);
+  opacity: 0.5;
+}
+
+div.form-container aside main section.image ul.images li svg.remove {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  position: absolute;
+  width: 1.2em;
+  height: 1.2em;
+  top: 10px;
+  left: 10px;
+  fill: white;
+  background-color: var(--danger-Color);
+  border-radius: 5px;
+  padding: .2em;
+  cursor: pointer;
+}
+
+div.form-container aside main section.image ul.images li svg.remove:hover {
+  opacity: 0.7;
+}
+
+div.form-container aside main section.image div.imageEffect {
+  margin: 1em 0;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.form-container aside main section.image div.imageEffect p {
+  font-size: 0.9em;
+  margin: 0 1em;
+}
+
+div.form-container aside main section.image div.imageEffect p b {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+div.form-container aside main div.supposedPrice {
+  margin-top: 1em;
+  width: 100%;
+}
+
+div.form-container aside main div.supposedPrice div.inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.form-container aside main div.supposedPrice div.inputs div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  height: 3em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.form-container aside main div.supposedPrice div.inputs div.agreement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40%;
+}
+
+div.form-container aside main div.supposedPrice div.inputs div.agreement input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 0 auto;
+  width: 2.5em;
+  height: 2.5em;
+  position: relative;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border: 1px solid var(--secondary-Color);
+  border-radius: 5px;
+}
+
+div.form-container aside main div.supposedPrice div.inputs div.agreement input::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  content: '✓';
+  color: var(--secondary-Color);
+  -webkit-transition: color 0.5s ease , font-size 0.5s ease;
+  transition: color 0.5s ease , font-size 0.5s ease;
+}
+
+div.form-container aside main div.supposedPrice div.inputs div.agreement input:checked {
+  background-color: var(--primary-Color);
+}
+
+div.form-container aside main div.supposedPrice div.inputs div.agreement input:checked::after {
+  font-size: 1.5em;
+  color: white;
+}
+
+div.form-container aside main div.supposedPrice div.inputs div.price {
+  width: 60%;
+  position: relative;
+}
+
+div.form-container aside main div.supposedPrice div.inputs div.price input {
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: var(--header-Color);
+  border: 2px solid var(--primary-Color);
+  border-radius: 5px;
+  outline: none;
+  height: 2.5em;
+  color: var(--foreground-Color);
+  -webkit-transition: color 0.3s ease,background-color 0.5s ease,-webkit-box-shadow 0.5s ease;
+  transition: color 0.3s ease,background-color 0.5s ease,-webkit-box-shadow 0.5s ease;
+  transition: color 0.3s ease,background-color 0.5s ease,box-shadow 0.5s ease;
+  transition: color 0.3s ease,background-color 0.5s ease,box-shadow 0.5s ease,-webkit-box-shadow 0.5s ease;
+  padding-right: 1em;
+  padding-left: 3em;
+}
+
+div.form-container aside main div.supposedPrice div.inputs div.price input:hover {
+  -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.1);
+          box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.1);
+}
+
+div.form-container aside main div.supposedPrice div.inputs div.price input::-webkit-outer-spin-button, div.form-container aside main div.supposedPrice div.inputs div.price input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+div.form-container aside main div.supposedPrice div.inputs div.price label {
+  position: absolute;
+  left: 1em;
+  font-size: 0.7em;
+  color: var(--secondary-Color);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+div.form-container aside p {
+  margin: 1em 0;
+  font-size: 0.9em;
+}
+
+div.form-container aside p a {
+  color: var(--primary-Color);
+}
+
+div.form-container aside button.submit {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: var(--success-Color);
+  outline: none;
+  border: none;
+  border-radius: 0.5em;
+  width: 100%;
+  padding: 0.5em 0;
+  color: white;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+div.form-container aside button.submit::after {
+  content: '';
+  width: 100%;
+  height: calc(100% * 7);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+}
+
+div.form-container aside button.submit:hover::after {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+}
+
+div.form-container div.formSection {
+  width: 60%;
+}
+
+div.form-container div.formSection main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+div.form-container div.formSection main form div.location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.form-container div.formSection main form div.location div {
+  width: 50%;
+}
+
+div.form-container div.formSection main form div.location div:nth-child(1) select {
+  border-radius: 0 10px 10px 0;
+  border-left: none;
+}
+
+div.form-container div.formSection main form div.location div:nth-child(2) select {
+  border-radius: 10px 0 0 10px;
+}
+
+div.form-container div.formSection main form div.custom-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div.form-container div.formSection main form div.custom-inputs div {
+  margin: 0.5em 0;
+}
+
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown select {
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: 3px solid var(--secondary-Color);
+  border-radius: 10px;
+  padding: 1em;
+  color: var(--foreground-Color);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-transition: -webkit-box-shadow 0.5s ease;
+  transition: -webkit-box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease, -webkit-box-shadow 0.5s ease;
+}
+
+.dropdown select + label {
+  z-index: 100;
+}
+
+.dropdown select:valid + label {
+  display: none;
+}
+
+.dropdown select:hover, .dropdown select:focus {
+  -webkit-box-shadow: 0 0 10px 10px rgba(0, 0, 250, 0.2);
+          box-shadow: 0 0 10px 10px rgba(0, 0, 250, 0.2);
+}
+
+.dropdown select:focus-within ~ svg {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+          transform: translateY(-50%) rotate(180deg);
+}
+
+.dropdown select option {
+  color: black;
+}
+
+.dropdown svg {
+  position: absolute;
+  left: calc(0% + 1em);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  div.form-container aside main section.image ul.images {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  div.form-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  div.form-container aside {
+    width: 100%;
+  }
+  div.form-container aside main section.image ul.images {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+  }
+  div.form-container div.formSection {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  div.form-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  div.form-container aside {
+    width: 90%;
+    margin: 0 auto;
+  }
+  div.form-container aside main section.image ul.images {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+  }
+  div.form-container div.formSection {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  div.form-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  div.form-container aside {
+    width: 90%;
+    margin: 0 auto;
+  }
+  div.form-container aside main section.image ul.images {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+  }
+  div.form-container div.formSection {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  div.form-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  div.form-container aside {
+    width: 90%;
+    margin: 0 auto;
+  }
+  div.form-container aside main div.supposedPrice div.inputs {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  div.form-container aside main div.supposedPrice div.inputs div.agreement {
+    width: 80%;
+    margin: 1em 0;
+  }
+  div.form-container aside main div.supposedPrice div.inputs div.price {
+    width: 100%;
+  }
+  div.form-container div.formSection {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=sendAdvertise.css.map */

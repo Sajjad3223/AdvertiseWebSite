@@ -1,0 +1,75 @@
+div.carousel-container {
+  position: relative;
+  background-color: rgba(0, 0, 200, 0.1);
+  overflow: hidden;
+  border-radius: 1em;
+  margin: 1em 0;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+div.carousel-container .carousel-dots, div.carousel-container .carousel-next, div.carousel-container .carousel-prev {
+  position: absolute;
+  left: 0;
+}
+
+div.carousel-container button {
+  background-color: var(--header-Color);
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  width: 3em;
+  height: 3em;
+  top: 50%;
+  cursor: pointer;
+  z-index: 5;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  opacity: 0.5;
+}
+
+div.carousel-container button:hover, div.carousel-container button:focus {
+  opacity: 1;
+}
+
+div.carousel-container button svg {
+  margin-top: 5px;
+  fill: var(--foreground-Color);
+  width: 2em;
+}
+
+div.carousel-container button.carousel-prev {
+  left: 1em;
+}
+
+div.carousel-container button.carousel-next {
+  right: 1em;
+}
+
+div.carousel-container ul.carousel {
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+
+div.carousel-container ul.carousel li {
+  margin: 1em auto;
+  width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.carousel-container ul.carousel img {
+  margin: auto;
+  height: 50vh;
+}
+/*# sourceMappingURL=carousel.css.map */

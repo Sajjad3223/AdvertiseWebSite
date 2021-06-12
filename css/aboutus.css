@@ -1,0 +1,175 @@
+* {
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+svg {
+  -webkit-transition: fill 0.5s ease;
+  transition: fill 0.5s ease;
+}
+
+main {
+  width: 90%;
+  margin: 2em auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main svg {
+  fill: var(--foreground-Color);
+}
+
+main > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: 0 10px 10px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 10px 10px 0px rgba(0, 0, 0, 0.2);
+  background-color: var(--header-Color);
+  padding: 2em;
+  border-radius: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main > div.discription {
+  font-size: 0.9em;
+}
+
+main > div.discription > div:nth-child(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+}
+
+main > div.discription > div:nth-child(1) div {
+  margin-top: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main > div.discription > div:nth-child(1) div ol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1em;
+  text-align: center;
+}
+
+main > div.discription > div:nth-child(1) div ol span {
+  color: var(--primary-Color);
+}
+
+main > div.discription > div:nth-child(2) {
+  display: -ms-grid;
+  display: grid;
+  margin-right: auto;
+  width: 15em;
+  height: 15em;
+  background-color: var(--background-Color);
+  place-items: center;
+  border-radius: 10px;
+}
+
+main > div.discription > div:nth-child(2) svg {
+  width: 10em;
+}
+
+main > div.features {
+  margin-top: 2em;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main > div.features div {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+main > div.features div h5 {
+  margin: 1em 0;
+  font-size: 1.2em;
+}
+
+main > div.features svg {
+  width: 5em;
+}
+
+@media screen and (max-width: 768px) {
+  main > div.discription > div:nth-child(1) div ol {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main > div.features div {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  main > div.discription {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  main > div.discription > div:nth-child(1) {
+    width: 100%;
+    margin-top: 1em;
+  }
+  main > div.discription > div:nth-child(1) div ol {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main > div.discription > div:nth-child(2) {
+    margin: 0 auto;
+  }
+  main > div.features div {
+    width: 100%;
+    margin-top: 2em;
+    border-color: transparent;
+    border-bottom: black;
+    border-width: 1px;
+    border-style: solid;
+  }
+}
+/*# sourceMappingURL=aboutus.css.map */

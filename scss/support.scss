@@ -1,0 +1,93 @@
+div.container{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    div{
+        width: 50%;
+        &.formSection{
+            main{
+                width: 80%;
+            }
+        }
+        &.v-separator{
+            height: auto;
+            margin: 7em 2em;
+            width: 2px;
+            background-color: var(--foreground-Color);
+            transition: background-color 0.5s ease;
+        }
+        &.FAQ{
+            margin-top: 7em;
+            display: flex;
+            flex-direction: column;
+            div.faq-title{
+                display: flex;
+                align-items: flex-end;
+                svg{
+                    width: 2em;
+                    fill: var(--foreground-Color);
+                    transition: fill 0.3s ease;
+                }
+            }
+            div.questions{
+                width: 100%;
+                margin-top: 2em;
+                height: auto;
+                hr{
+                    margin: 0 1em;
+                }
+                details.question{
+
+                    & > summary {
+                        list-style-type: none;
+                    }
+                    
+                    & > summary::-webkit-details-marker {
+                        display: none;
+                    }
+                    
+                    & > summary::before {
+                        content: '⊞';
+                        padding-left: 0.5em;
+                    }
+                    
+                    &[open] > summary::before {
+                        content: '⊟';
+                    }
+                    
+                    details[open] > summary {
+                        margin-bottom: 0.5rem;
+                    }
+
+                    width: 100%;
+                    margin: 1em 0;
+                    p{
+                        margin: 1em 0;
+                        margin-right: 2em;
+                    }
+                    ol{
+                        margin-right: 4em;
+                    }   
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:750px){
+    div.container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        div{
+            width: 90%;
+            &.v-separator{
+                height: 2px;
+                margin: 0;
+                width: 100%;
+            }   
+            &.FAQ{
+                margin-top: 1em;
+            }
+        }
+    }
+}

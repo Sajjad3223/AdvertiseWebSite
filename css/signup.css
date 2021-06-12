@@ -1,0 +1,304 @@
+@charset "UTF-8";
+div.formSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+div.formSection aside {
+  width: 30%;
+  height: 90vh;
+  background-image: url("../Images/img3.png");
+  background-size: cover;
+}
+
+div.formSection svg {
+  width: 30px;
+  fill: var(--foreground-Color);
+  -webkit-transition: fill 0.3s ease;
+  transition: fill 0.3s ease;
+}
+
+div.formSection main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+  margin: 20px auto;
+  font-size: 1em;
+}
+
+div.formSection main div.title {
+  width: 100%;
+  font-size: clamp(0.7em, 1.1vw, 1em);
+  margin: 1em 0;
+}
+
+div.formSection main div.title div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+}
+
+div.formSection main div.title div svg {
+  margin-left: 1em;
+  max-width: 2em;
+}
+
+div.formSection main div.title small {
+  font-weight: lighter;
+}
+
+div.formSection main form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  position: relative;
+  margin: 1.5em 0;
+}
+
+div.formSection main form div input::-ms-reveal,
+div.formSection main form div input::-ms-clear {
+  display: none;
+}
+
+div.formSection main form div input, div.formSection main form div textarea {
+  width: 100%;
+  background-color: transparent;
+  border: 3px solid var(--secondary-Color);
+  outline: none;
+  padding: 1.5em;
+  border-radius: 1em;
+  color: var(--foreground-Color);
+  -webkit-transition: -webkit-box-shadow 0.5s ease;
+  transition: -webkit-box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease, -webkit-box-shadow 0.5s ease;
+  resize: vertical;
+  min-height: 4em;
+}
+
+div.formSection main form div input:focus + label,
+div.formSection main form div input:valid + label, div.formSection main form div textarea:focus + label,
+div.formSection main form div textarea:valid + label {
+  font-size: 0.8em;
+  -webkit-transform: translateY(-1.7em);
+          transform: translateY(-1.7em);
+}
+
+div.formSection main form div input:hover, div.formSection main form div input:focus, div.formSection main form div textarea:hover, div.formSection main form div textarea:focus {
+  -webkit-box-shadow: 0 0 10px 10px rgba(0, 0, 255, 0.1);
+          box-shadow: 0 0 10px 10px rgba(0, 0, 255, 0.1);
+}
+
+div.formSection main form div input::-webkit-resizer, div.formSection main form div textarea::-webkit-resizer {
+  background-image: url(../html/resize.svg);
+  background-size: cover;
+  margin: 1em;
+  width: auto;
+}
+
+div.formSection main form div input[name=message], div.formSection main form div textarea[name=message] {
+  border-radius: 1em 1em 1em 0;
+}
+
+div.formSection main form div label {
+  position: absolute;
+  z-index: 10;
+  color: var(--foreground-Color);
+  top: 1em;
+  margin-right: 2em;
+  -webkit-transition: color 0.3s ease , font-size 0.3s ease , -webkit-transform 0.5s ease;
+  transition: color 0.3s ease , font-size 0.3s ease , -webkit-transform 0.5s ease;
+  transition: color 0.3s ease , transform 0.5s ease,font-size 0.3s ease;
+  transition: color 0.3s ease , transform 0.5s ease,font-size 0.3s ease , -webkit-transform 0.5s ease;
+  pointer-events: none;
+}
+
+div.formSection main form div label::before {
+  content: '';
+  background-color: var(--background-Color);
+  width: 100%;
+  padding: 0.5em 1em;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  z-index: -1;
+}
+
+div.formSection main form div span {
+  display: none;
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+}
+
+div.formSection main form div.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 425px) {
+  div.formSection main form div.row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  div.formSection main form div.row div, div.formSection main form div.row a {
+    width: 80% !important;
+  }
+}
+
+div.formSection main form div.row div.rememberMe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+}
+
+div.formSection main form div.row div.rememberMe label {
+  width: 60%;
+}
+
+div.formSection main form div.row div.rememberMe label::before {
+  display: none;
+}
+
+div.formSection main form div.row div.rememberMe input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin-right: auto;
+  width: 2em;
+  height: 2em;
+  position: relative;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+div.formSection main form div.row div.rememberMe input::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  content: '✓';
+  color: var(--secondary-Color);
+  -webkit-transition: color 0.5s ease , font-size 0.5s ease;
+  transition: color 0.5s ease , font-size 0.5s ease;
+}
+
+div.formSection main form div.row div.rememberMe input:checked {
+  background-color: var(--primary-Color);
+}
+
+div.formSection main form div.row div.rememberMe input:checked::after {
+  font-size: 2em;
+  color: white;
+}
+
+div.formSection main form div.row a {
+  width: 50%;
+  text-decoration: none;
+  text-align: center;
+  color: var(--foreground-Color);
+  -webkit-transition: color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
+}
+
+div.formSection main form div.row a:hover {
+  color: var(--primary-Color);
+}
+
+div.formSection main form div.submit {
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  place-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+div.formSection main form div.submit input[type=submit] {
+  border: none;
+  outline: none;
+  background-color: var(--primary-Color);
+  color: white;
+  width: 100%;
+  padding: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+div.formSection main form div.submit input[type=submit]:hover + i, div.formSection main form div.submit input[type=submit]:focus + i {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+div.formSection main form div.submit i {
+  position: absolute;
+  width: 100%;
+  height: 35em;
+  pointer-events: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+div.formSection main div.goLogin {
+  margin-top: 2em;
+}
+
+div.formSection main div.goLogin a {
+  color: var(--primary-Color);
+}
+
+@media screen and (max-width: 560px) {
+  div.formSection {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+  }
+  div.formSection aside {
+    display: none;
+  }
+  div.formSection main {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=signup.css.map */

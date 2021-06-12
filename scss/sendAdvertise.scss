@@ -1,0 +1,444 @@
+div.form-container{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    aside{
+        width: 40%;
+        height: 100%;
+        position: sticky;
+        margin-top: 2em;
+        top: 5em;
+        display: flex;
+        flex-direction: column;
+        svg{
+            max-width: 5em;
+        }
+        main{
+            background-color: var(--header-Color);
+            transition: background-color 0.5s ease;
+            padding: 2em;
+            border-radius: 1em;
+            box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
+            section.image{
+                display: flex;
+                flex-direction: column;
+                h2{
+                    margin-bottom: 0.5em;
+                }
+
+                ul.images{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    grid-template-rows: 1fr 1fr;
+                    grid-gap: 0.5em;
+                    list-style: none;
+                    div.uploadButton{
+                        position: relative;
+                        border: 2px solid var(--secondary-Color);
+                        border-radius: 1em;
+                        input{
+                            width: 100%;
+                            height: 100%;
+                            visibility: hidden;
+                        }
+                        label,svg{
+                            position: absolute;
+                            width: 80%;
+                            top: 10%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                        svg{
+                            fill: var(--secondary-Color);
+                            width: 3em;
+                            pointer-events: none;
+                        }
+                        label{
+                            box-sizing: border-box;
+                            font-size: clamp(0.7em,1vw,1em);
+                            top: 60%;
+                            text-align: center;
+                            background-color: var(--primary-Color);
+                            color: white;
+                            border-radius: 5px;
+                            padding: 0.3em 0;
+                            margin: 0 auto;
+                            cursor: pointer;
+                        }
+                    }
+                    li{
+                        width: 100%;
+                        position: relative;
+                        min-height: 7em;
+                        border-radius: 1em;
+                        display: flex;
+                        background-color: var(--background-Color);
+                        transition: background-color 0.5s ease;
+                        box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.2);
+                        padding: 0.5em;
+                        img{
+                            width: 90%;
+                            max-height: 6em;
+                            margin: 0 auto;
+                            border-radius: 5px;
+                            &[src=""] , &[src=""] ~ svg.remove{
+                                display: none;
+                            }
+                            &:not([src=""]) ~ svg.template{
+                                display: none;
+                            }
+                        }
+                        svg.template{
+                            width: 100%;
+                            height: 100%;
+                            margin: auto;
+                            fill: var(--secondary-Color);
+                            opacity: 0.5;
+                        }
+                            
+                        svg.remove{
+                            box-sizing: content-box;
+                            position: absolute;
+                            width: 1.2em;
+                            height: 1.2em;
+                            top: 10px;
+                            left: 10px;
+                            fill: white;
+                            background-color: var(--danger-Color);
+                            border-radius: 5px;
+                            padding: .2em;
+                            cursor: pointer;
+                            &:hover{
+                                opacity: 0.7;
+                            }
+                        }
+                    }
+                }
+
+                div.imageEffect{
+                    
+                    margin: 1em 0;
+                    display: none;
+                    align-items: center;
+                    p{
+                        font-size: 0.9em;
+                        margin: 0 1em;
+                        b{
+                            font-size: 1.2em;
+                            font-weight: bolder;
+                        }
+                    }
+                }
+            }
+
+            div.supposedPrice{
+                margin-top: 1em;
+                width: 100%;
+                div.inputs{
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
+                    div{
+                        display: flex;
+                        position: relative;
+                        height: 3em;
+                        align-items: center;
+                        &.agreement{
+                            display: flex;  
+                            width: 40%;
+
+                            input{
+                                appearance: none;
+                                margin: 0 auto;
+                                width: 2.5em;
+                                height: 2.5em;
+                                position: relative;
+                                transition: background-color 0.3s ease;
+                                cursor: pointer;
+                                border: 1px solid var(--secondary-Color);
+                                border-radius: 5px;
+
+                                &::after{
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%,-50%);
+                                    font-size: 1.2em;
+                                    content: '✓';
+                                    color: var(--secondary-Color);
+                                    transition: color 0.5s ease , font-size 0.5s ease;
+                                }
+
+                                &:checked{
+                                    background-color: var(--primary-Color);
+                                    &::after{
+                                        font-size: 1.5em;
+                                        color: white;
+                                    }
+                                }
+                            }
+                        }
+                        &.price{
+                            width: 60%;
+                            position: relative;
+                            input{
+                                width: 100%;
+                                appearance: none;
+                                background-color: var(--header-Color);
+                                border: 2px solid var(--primary-Color);
+                                border-radius: 5px;
+                                outline: none;
+                                height: 2.5em;
+                                color: var(--foreground-Color);
+                                transition: color 0.3s ease,background-color 0.5s ease,box-shadow 0.5s ease;
+                                padding-right: 1em;
+                                padding-left: 3em;
+                                
+                                &:hover{
+                                    box-shadow: 0 0 10px 5px rgba($color: #00F, $alpha: 0.1);
+                                }
+                                &::-webkit-outer-spin-button,
+                                &::-webkit-inner-spin-button {
+                                    appearance: none;
+                                }
+                            }
+                            label{
+                                position: absolute;
+                                left: 1em;
+                                font-size: 0.7em;
+                                color: var(--secondary-Color);
+                                top: 50%;
+                                transform: translateY(-50%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        p{
+            margin: 1em 0;
+            font-size: 0.9em;
+            a{
+                color: var(--primary-Color);
+
+            }
+        }
+
+        button.submit{
+            appearance: none;
+            background-color: var(--success-Color);
+            outline: none;
+            border: none;
+            border-radius: 0.5em;
+            width: 100%;
+            padding: 0.5em 0;
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 1em;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+
+            &::after{
+                content: '';
+                width: 100%;
+                height: calc(100% * 7);
+                border-radius: 50%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%) scale(0);
+                transition: transform 0.3s ease;
+                background-color: rgba(0,0,0,0.2);
+                position: absolute;
+            }
+
+            &:hover::after{
+                transform: translate(-50%,-50%) scale(1);
+            }
+        }
+    }
+    div.formSection{
+        width: 60%;
+        
+        main{
+            width: 80%;
+            margin: 0 auto;
+
+            form{
+                div.location{
+                    display: flex;
+                    div{
+                        width: 50%;
+                        &:nth-child(1){
+                            select{
+                                border-radius: 0 10px 10px 0;
+                                border-left: none;
+                            }
+                        }
+                        &:nth-child(2){
+                            select{
+                                border-radius: 10px 0 0 10px;
+                            }
+                        }
+                        
+                    }
+                }
+                div.custom-inputs{
+                    display: flex;
+                    width: 100%;
+                    flex-direction: column;
+                    div{
+                        margin: 0.5em 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dropdown{
+    position: relative;
+    width: 100%;
+    select{
+        width: 100%;
+        background-color: transparent;
+        outline: none;
+        border: 3px solid var(--secondary-Color);
+        border-radius: 10px;
+        padding: 1em;
+        color: var(--foreground-Color);
+        appearance: none;
+        transition: box-shadow 0.5s ease;
+
+        & + label{
+            z-index: 100;
+        }
+        &:valid{
+            & + label{
+                display: none;
+            }
+        }
+        &:hover,&:focus{
+            box-shadow: 0 0 10px 10px rgba(0,0,250,0.2);
+        }
+        &:focus-within{
+            & ~ svg{
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+        option{
+            color: black;
+        }
+    }
+    svg{
+        position: absolute;
+        left: calc(0% + 1em);
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+}
+
+@media screen and (max-width:768px){  
+    div.form-container{
+        aside{
+            main{
+                section.image{
+                    ul.images{
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-rows: 1fr 1fr 1fr;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:570px){  
+    div.form-container{
+        flex-direction: column;
+        aside{
+            width: 100%;
+            main{
+                section.image{
+                    ul.images{
+                        grid-template-columns: 1fr 1fr 1fr;
+                        grid-template-rows: 1fr 1fr ;
+                    }
+                }
+            }
+        }
+        div.formSection{
+            width: 100%;
+        }
+    }
+}
+@media screen and (max-width:425px){  
+    div.form-container{
+        flex-direction: column;
+        aside{
+            width: 90%;
+            margin: 0 auto;
+            main{
+                section.image{
+                    ul.images{
+                        grid-template-columns: 1fr 1fr 1fr;
+                        grid-template-rows: 1fr 1fr ;
+                    }
+                }
+            }
+        }
+        div.formSection{
+            width: 100%;
+        }
+    }
+}
+@media screen and (max-width:375px){  
+    div.form-container{
+        flex-direction: column;
+        aside{
+            width: 90%;
+            margin: 0 auto;
+            main{
+                section.image{
+                    ul.images{
+                        grid-template-columns: 1fr 1fr ;
+                        grid-template-rows: 1fr 1fr 1fr;
+                    }
+                }
+            }
+        }
+        div.formSection{
+            width: 100%;
+        }
+    }
+}
+@media screen and (max-width:320px){  
+    div.form-container{
+        flex-direction: column;
+        aside{
+            width: 90%;
+            margin: 0 auto;
+            main{
+                div.supposedPrice{
+                    div.inputs{
+                        flex-direction: column;
+                        div{
+                            &.agreement{
+                                width: 80%;
+                                margin: 1em 0;
+                            }
+                            &.price{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        div.formSection{
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,552 @@
+@import 'root';
+
+
+#filterToggler{
+    display: none;
+}
+
+.dropdown{
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    & > label{
+        width: 35%;
+        font-size: clamp(0.7em,1vw,1em);
+    }
+    select{
+        width: 65%;
+        background-color: transparent;
+        border: 2px solid var(--primary-Color);
+        border-radius: 5px;
+        padding: 0.3em 1em;
+        margin: 0 1em;
+        appearance: none;
+        font-weight: bold;
+        outline: none;
+        color: var(--foreground-Color);
+        cursor: pointer;
+        transition: color 0.3s ease,box-shadow 0.5s ease;
+        option{
+            color: black;
+        }
+        &:hover{
+            box-shadow: 0 0 10px 10px rgba($color: #00F, $alpha: 0.1);
+        }
+    }
+    svg{
+        position: absolute;
+        left: 1em;
+        width: 30px;
+        fill: var(--primary-Color);
+        pointer-events: none;
+    }
+
+}
+
+section.FilterBox{
+    width: 90%;
+    margin: 1em auto;
+    padding: 1em 3em;
+    border: 3px solid $primary-color;
+    border-radius: 1em;
+    display: flex;
+    main{
+        display: grid;
+        width: 100%;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows:  1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "filters filters filters delete"
+        "search search orderby range"
+        "group subgroup sortby from"
+        "ostan shahrestan image to";
+        grid-gap: 0.5em;
+
+        align-items: center;
+
+        scroll-behavior: smooth;
+
+        input[type=number],input[type=text]{
+            appearance: none;
+            background-color: var(--header-Color);
+            border: 2px solid var(--primary-Color);
+            border-radius: 5px;
+            outline: none;
+            color: var(--foreground-Color);
+            transition: color 0.3s ease,background-color 0.5s ease,box-shadow 0.5s ease;
+            font-family: "Vazir FD";
+            
+            &:hover{
+                box-shadow: 0 0 10px 5px rgba($color: #00F, $alpha: 0.1);
+            }
+
+        }
+
+        section{
+            display: flex;
+            grid-area: filters;
+            align-items: center;
+            width: 100%;
+            h5{
+                font-size: 1.5em;
+                width: auto;
+            }
+
+            .filters{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                .filterObject{
+                    display: flex;
+                    border: none;
+                    background-color: var(--danger-Color);
+                    outline: none;
+                    color: white;
+                    fill: white;
+                    padding: 0.3em 1em;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 20px;
+                    margin: 0 0.3em;
+                    transition: background-color 0.5s ease;
+                    span{
+                        pointer-events: none;
+                    }
+                    span:nth-child(1){
+                        font-size: 1.1em;
+                        margin-left: 0.3em;
+                    }
+                    &:hover{
+                        background-color: #EC7E7E;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        #deleteAllFilters{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-area: delete;
+            background-color: transparent;
+            border: 2px solid var(--secondary-Color);
+            border-radius: 10px;
+            padding: 0.5em 0;
+            outline: none;
+            width: 100%;
+            cursor: pointer;
+            color: var(--foreground-Color);
+            FILL: var(--foreground-Color);
+            transition: background-color 0.5s ease,
+                        color 0.3s ease, fill 0.5s ease;
+
+            &:hover{
+                background-color: var(--secondary-Color);
+                color: white;
+                fill:white;
+            }
+
+            svg{
+                width: 1.5em;
+                margin: 0 1em;
+            }
+            span{
+                font-size: clamp(1em,1.5vw,1.5em);
+            }
+        }
+
+        .searchBox{
+            display: flex;
+            align-items: center;
+            grid-area: search;
+            h6{
+                font-size: 1em;
+            }
+
+            div{
+                position: relative;
+                width: 80%;
+
+                label{
+                    position: absolute;
+                    top: 50%;
+                    left: 0.5em;
+                    margin-top: -0.7em;
+                    svg{
+                        width: 1.5em;
+                        fill: var(--foreground-Color);
+                        transition: fill 0.5s ease;
+                    }
+                }
+                input{
+                    width: 100%;
+                    padding: 0.5em;
+                    margin: 0 0.5em;
+                }
+            }
+        }
+
+        div.orderBy{
+            display: flex;
+            margin: 0 auto;
+            grid-area: orderby;
+            div{
+                display: flex;
+                
+                label{
+                    display: inline-block;
+                    background-color: transparent;
+                    color: var(--foreground-Color);
+                    padding: 7px 20px;
+                    font-size: 14px;
+                    transition: background-color 0.5s ease,color 0.4s ease;
+                    cursor: pointer;
+                }
+                input{
+                    opacity: 0;
+                    position: fixed;
+                    width: 0;
+
+                    &:checked + label{
+                        background-color:var(--primary-Color);
+                        color: white;
+                    }
+                }
+            }
+            .AscendingOrder{
+                label{
+                    border: 2px solid var(--primary-Color);
+                    border-left: transparent;
+                    border-radius: 0 10px 10px 0;
+                }
+            }
+            .DescendingOrder{
+                label{
+                    border: 2px solid var(--primary-Color);
+                    border-right: transparent;
+                    border-radius: 10px 0 0 10px;
+                }
+            }
+
+        }
+
+        div.priceRangeSlider{
+            position: relative;
+            direction: ltr;
+            grid-area: range;
+            input[type=range]{
+                position: absolute;
+                z-index: 2;
+                height: 10px;
+                width: 100%;
+                appearance: none;
+                pointer-events: none;
+                opacity: 0;
+            }
+
+            input[type=range]::-webkit-slider-thumb{
+                pointer-events: all;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                border: none;
+                background-color: var(--primary-Color);
+                appearance: none;
+                
+            }
+
+            .slider{
+                position: relative;
+                z-index: 1;
+                height: 10px;
+
+                .track{
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    border-radius: 5px;
+                    background-color: #c6aee7;
+                }
+
+                .range{
+                    position: absolute;
+                    z-index: 2;
+                    left: 25%;
+                    right: 25%;
+                    top: 0;
+                    bottom: 0;
+                    border-radius: 5px;
+                    background-color: var(--primary-Color);
+                }
+
+                .thumb{
+                    position: absolute;
+                    z-index:5;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    background-color: var(--primary-Color);
+                    
+                }
+                .left{
+                    transform: translate(-15px,-10px);
+                    left: 25%;
+                }
+                .right{
+                    transform: translate(15px,-10px);
+                    right: 25%;
+                }
+            }
+
+
+        }
+
+        .hidden{
+            display: none;
+        }
+
+        .AdvertiseGroup{ grid-area: group; }
+        .AdvertiseSubGroup{grid-area:subgroup ;}
+        .AdvertiseOrder{grid-area:sortby ;}
+        .fromPrice{grid-area:from ;}
+        .Ostan{grid-area:ostan ;}
+        .Shahrestan{grid-area:shahrestan ;}
+        .toPrice{grid-area:to ;}
+
+        .numeric{
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            label{
+                width: 25%;
+                font-size: clamp(0.7em,1vw,1em);
+            }
+            input[type=number]{
+                width: 75%;
+                padding: 0.5em;
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    appearance: none;
+                }
+            }
+
+            span{
+                position: absolute;
+                top: 5px;
+                left: 5%;
+                color: var(--foreground-Color);
+                opacity: .7;
+                transition: color 0.3s ease;
+            }
+        }
+
+        .justWithImage{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            grid-area:image ;
+            label{
+                width: 40%;
+                font-size: clamp(0.7em,1vw,1em);
+            }
+            input{
+                appearance: none;
+                position: relative;
+                background-color: transparent;
+                border: 2px solid var(--primary-Color);
+                border-radius: 2em;
+                width: clamp(5em,40%,10em);
+                height: 3em;
+
+                &::after{
+                    position: absolute;
+                    content: '';
+                    width: 50%;
+                    height: 2.5em;
+                    top: 50%;
+                    left: 2px;
+                    margin-top: -1.25em;
+                    border-radius: 2em;
+                    background-color: #89817D;
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                }
+                &:checked::after{
+                    transform: translateX(90%);
+                    background-color: var(--primary-Color);
+                }
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 820px) {
+section.FilterBox{
+    padding: 1em;
+    main{
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "filters filters delete"
+        "search search orderby"
+        "group subgroup sortby"
+        "ostan shahrestan image"
+        "from to range";
+
+        section{
+            h5{
+                font-size: 1em;
+                width: 30%;
+            }
+            .filters{
+
+                .filterObject{
+                    display: flex;
+                    border: none;
+                    background-color: var(--danger-Color);
+                    outline: none;
+                    color: white;
+                    fill: white;
+                    font-size: 0.5em;
+                    padding: 0.3em 1em;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 20px;
+                    margin: 0 0.5rem;
+                    transition: background-color 0.5s ease;
+                    &:hover{
+                        background-color: #EC7E7E;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .dropdown{
+            width: 100%;
+            label{
+                width: 20%;
+            }
+            input{
+                width: 80%;
+            }
+        }
+    }
+}
+}
+@media only screen and (max-width: 500px) {
+    #filterToggler{
+        display: flex;
+        align-items: center;
+        width: 90%;
+        margin: 1em auto;
+        border: 2px solid var(--primary-Color);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.5s ease, fill 0.3s ease;
+        &.active , &:hover{
+            background-color: var(--primary-Color);
+            color: white;
+            fill: white;
+        }
+        span{
+            width: 80%;
+            text-align: center;
+            font-weight: bold;
+        }
+        svg{
+            width: 50px;
+            fill:var(--foreground-Color)
+        }
+    }
+    section.FilterBox{
+        display: none;
+        padding: 1em;
+        main{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas: 
+            "filters filters"
+            "search search"
+            "group subgroup"
+            "sortby orderby"
+            "ostan shahrestan"
+            "image ..."
+            "range range"
+            "from to"
+            "delete delete";
+    
+            .orderBy{
+                width: 70%;
+            }
+            .dropdown{
+                label{
+                    width: 30%;
+                }
+                input{
+                    width: 70%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:400px) {
+
+    section.FilterBox{
+        display: none;
+        padding: 0.5em;
+        main{
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(13,1fr);
+            grid-template-areas: 
+            "filters"
+            "filters"
+            "search"
+            "group"
+            "subgroup"
+            "sortby"
+            "orderby"
+            "ostan"
+            "shahrestan"
+            "image"
+            "range"
+            "from"
+            "to"
+            "delete";
+
+            section{
+                h5{
+                    width: 30%;
+                }
+                .filters{
+                    width: 70%;
+                }
+            }
+    
+            .orderBy{
+                width: 20%;
+            }
+            .dropdown{
+                width: 100%;
+                label{
+                    width: 30%;
+                }
+                input{
+                    width: 70%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,419 @@
+div.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2em;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+div.container .data {
+  padding: 0.5em;
+  background-color: var(--background-Color);
+  color: var(--foreground-Color);
+  border-radius: 7px;
+  text-align: center;
+  -webkit-transition: background-color 0.3s ease, color 0.4s ease;
+  transition: background-color 0.3s ease, color 0.4s ease;
+}
+
+div.container a.call, div.container a.report {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+div.container a.call::before, div.container a.report::before {
+  position: absolute;
+  content: '';
+  width: calc(100% * 2);
+  height: calc(100% * 10);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+div.container a.call:hover::before, div.container a.report:hover::before {
+  -webkit-transform: translate(-50%, -50%) scale(0.6);
+          transform: translate(-50%, -50%) scale(0.6);
+}
+
+div.container a.call {
+  background-color: var(--primary-Color);
+}
+
+div.container a.report {
+  background-color: var(--danger-Color);
+}
+
+div.container > main {
+  width: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 2em;
+}
+
+div.container > main > div.details {
+  width: 100%;
+  background-color: var(--header-Color);
+  border-radius: 1em;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  padding: 2em;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  margin: 1em 0;
+}
+
+div.container > main > div.details > div.mainDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div.container > main > div.details > div.mainDetails > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.container > main > div.details > div.mainDetails > div span {
+  width: 30%;
+  color: var(--secondary-Color);
+}
+
+div.container > main > div.details > div.mainDetails > div a {
+  width: 70%;
+  text-decoration: none;
+  color: var(--foreground-Color);
+  font-weight: bold;
+}
+
+div.container > main > div.details hr {
+  margin: 1em;
+}
+
+div.container > main > div.details > div.customDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+div.container > main > div.details > div.customDetails > div {
+  width: 50%;
+  margin: 0.5em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.container > main > div.details > div.customDetails > div > span {
+  width: 40%;
+  color: var(--secondary-Color);
+}
+
+div.container > main > div.details > div.customDetails > div > a {
+  width: 60%;
+  color: var(--foreground-Color);
+  text-decoration: none;
+  pointer-events: none;
+}
+
+div.container > main > div.details > div.description > p {
+  margin: 1em 0;
+  font-size: 0.9em;
+}
+
+div.container > main > div.details > div.actions {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.container > main > div.details > div.actions a {
+  width: 50%;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  border-radius: 5px;
+}
+
+div.container > aside {
+  width: 35%;
+}
+
+div.container > aside svg {
+  max-width: 2em;
+}
+
+div.container > aside > div.advSender {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  padding: 2em;
+  border-radius: 1em;
+  background-color: var(--header-Color);
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+div.container > aside > div.advSender > div.buttons {
+  margin-right: auto;
+}
+
+div.container > aside > div.advSender > div.buttons button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 0 0.5em;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+div.container > aside > div.advSender > div.buttons button svg {
+  background-color: none;
+  fill: var(--foreground-Color);
+  width: 2em;
+  -webkit-transition: fill 0.3s ease,stroke 0.3s ease;
+  transition: fill 0.3s ease,stroke 0.3s ease;
+}
+
+div.container > aside > div.advSender > div.buttons button#point svg {
+  fill: transparent;
+  stroke: var(--foreground-Color);
+  stroke-width: 2px;
+}
+
+div.container > aside > div.advSender > div.buttons button:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+div.container > aside > div.advSender div:not(div.buttons) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 0.5em 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.container > aside > div.advSender div:not(div.buttons) span:nth-child(1) {
+  width: 35%;
+  font-size: 0.9em;
+}
+
+div.container > aside > div.advSender div:not(div.buttons) span.data {
+  width: 65%;
+}
+
+div.container > aside > div.advSender a {
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  padding: 0.5em;
+  margin: 1em;
+  border-radius: 5px;
+}
+
+div.container > aside > div.relatedAdvs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  padding: 1em;
+  margin: 1em 0;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--header-Color);
+  border-radius: 1em;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+div.container > aside > div.relatedAdvs h4 {
+  margin: 1em 0;
+}
+
+div.container > aside > div.relatedAdvs > div.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin: 1em 0;
+  background-color: var(--background-Color);
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  padding: 1em;
+  border-radius: 0.5em;
+}
+
+div.container > aside > div.relatedAdvs > div.card a {
+  font-size: clamp(0.8em, 1.5vw, 1em);
+  color: var(--foreground-Color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+div.container > aside > div.relatedAdvs > div.card > div.information {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.container > aside > div.relatedAdvs > div.card > div.information img {
+  width: 30%;
+  border-radius: 10px;
+}
+
+div.container > aside > div.relatedAdvs > div.card > div.information > div.details {
+  width: 70%;
+}
+
+div.container > aside > div.relatedAdvs > div.card > div.information > div.details div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.5em 0;
+}
+
+div.container > aside > div.relatedAdvs > div.card > div.information > div.details div svg {
+  fill: var(--foreground-Color);
+  width: 20%;
+}
+
+div.container > aside > div.relatedAdvs > div.card > div.information > div.details div span {
+  width: 80%;
+  background-color: var(--header-Color);
+  font-size: 0.9em;
+}
+
+@media screen and (max-width: 1024px) {
+  div.container > main {
+    width: 60%;
+  }
+  div.container > aside {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  div.container > main {
+    width: 50%;
+  }
+  div.container > aside {
+    width: 50%;
+  }
+  div.container .actions {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  div.container .actions a {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  div.container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  div.container > main, div.container > aside {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  div.mainDetails div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+  }
+  div.customDetails {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  div.customDetails div {
+    width: 100% !important;
+  }
+  div.customDetails div span {
+    width: 30%;
+  }
+  div.customDetails div a {
+    width: 70%;
+    text-align: center;
+  }
+}
+/*# sourceMappingURL=single.css.map */
